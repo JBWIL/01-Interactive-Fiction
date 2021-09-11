@@ -499,7 +499,7 @@ def update(current_location, location_label, response):
 		return location_label
 	if "links" in current_location:
 		for link in current_location["links"]:
-			if link["linkText"] == response:
+			if link["linkText"].upper() == response:
 				return link["passageName"]
 	print("I don't understand what you are trying to do. Try again.")
 	return location_label
@@ -507,7 +507,7 @@ def update(current_location, location_label, response):
 
 # ----------------------------------------------------------------
 
-location_label = "West of House"
+location_label = "Room"
 current_location = {}
 response = ""
 score = 0
@@ -524,5 +524,5 @@ while True:
 	render(current_location, score, moves)
 	response = get_input()
 
-
+  
 print("Thanks for playing!")
